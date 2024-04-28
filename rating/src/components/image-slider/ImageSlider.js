@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react'
 import { BsArrowLeftCircleFill } from "react-icons/bs";
 import { BsArrowRightCircleFill } from "react-icons/bs";
 import './styles.css'
-export default function ImageSlider({ url, limit = 5, page = 1 }) {
+export default function ImageSlider({ url, limit = 15, page = 1 }) {
 
 const[ImageObj,setImageObj]=useState(null);
 const[ImageUrl,setImageUrl]=useState('https://picsum.photos/id/0/500/333')
@@ -12,9 +12,7 @@ const [errorMsg, setErrorMsg] = useState(null);
 const[ImgArr,setImgArr]=useState([
   'https://picsum.photos/id/0/5000/3333',
   'https://picsum.photos/id/1/5000/3333',
-  'https://picsum.photos/id/2/5000/3333',
-  'https://picsum.photos/id/3/5000/3333',
-  'https://picsum.photos/id/4/5000/3333'
+ 
 ]);
 
 useEffect(() => {
@@ -33,12 +31,12 @@ async function fetchImages(getUrl)  {
       setImageObj(data);
       setLoading(false);
       
-      // for(k in data){
-      //   console.log(data[k].download_url)
-      //   ar.push(data[k].download_url)
+      for(let k in data){
+        console.log(data[k].download_url)
+        ar.push(data[k].download_url)
 
-      // }
-      // setImgArr(ar);
+      }
+      setImgArr(ar);
     }
   }
   catch(e){
@@ -66,7 +64,8 @@ function handleRightClick(){
         onClick={()=>{handleLeftClick()}}
         size={40}/>
 
-        <button>Upload</button>
+      
+
         <img
         className='current-image' 
         src={ImgArr[currentSlide]} />
@@ -76,8 +75,23 @@ function handleRightClick(){
         onClick={()=>{handleRightClick()}}
         size={40}/>
         
+
+        <span className='circle-indicators'>
+      {ImgArr.map( (_,idx)=>
+        <button 
+        key={idx}
+        className={idx===currentSlide?'current-indicator' :'current-indicator inactive-indicator'}  
+        >
+         
+
+
+        </button>
+      )
+    }
+    </span>
+
         </div>
-    
+    <button>Upload</button>
     
     </>
   )
