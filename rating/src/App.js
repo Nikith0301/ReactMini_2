@@ -10,6 +10,8 @@ import QrCode from "./components/qr-code-gen/QrCode.js";
 import ScrollIndicator from "./components/scroll-indicator/index.js";
 import TabTest from "./components/custom-tabs/tab-test.jsx";
 import GitProfile from "./components/github-profile-finder/GitProfile.jsx";
+import SearchAutocomplete from "./components/search-autocomplete-with-api/SearchAutocomplete.jsx";
+import TicTacToe from "./components/tic-tac-toe/TicTacToe.jsx";
 
 export default function App() {
  
@@ -25,6 +27,8 @@ export default function App() {
    {/* <QrCode/> */}
    {/* <ScrollIndicator  url={"https://dummyjson.com/products?limit=50"} /> */}
    {/* <TabTest/> */}
-   <GitProfile/>
+   {/* <GitProfile/> */}
+   {/* <SearchAutocomplete/> */}
+   <TicTacToe/>
    </>);
 }
