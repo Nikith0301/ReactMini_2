@@ -12,6 +12,11 @@ import TabTest from "./components/custom-tabs/tab-test.jsx";
 import GitProfile from "./components/github-profile-finder/GitProfile.jsx";
 import SearchAutocomplete from "./components/search-autocomplete-with-api/SearchAutocomplete.jsx";
 import TicTacToe from "./components/tic-tac-toe/TicTacToe.jsx";
+import FeatureFlagGlobalState from "./components/feature-flags/context/index.js";
+import FeatureFlags from "./components/feature-flags/FeatureFlags.jsx";
+import UseFetchHookTest from "./components/use-fetch/test.js";
+import Comp from "./components/use-outside-click/Comp.jsx";
+import ResizeComp from "./components/use-window-resize/ResizeComp.jsx";
 
 export default function App() {
  
@@ -29,6 +34,15 @@ export default function App() {
    {/* <TabTest/> */}
    {/* <GitProfile/> */}
    {/* <SearchAutocomplete/> */}
-   <TicTacToe/>
+   {/* <TicTacToe/> */}
+    {/* <FeatureFlagGlobalState>
+        <FeatureFlags />
+      </FeatureFlagGlobalState> */}
+
+{/* <UseFetchHookTest/> */}
+
+{/* <Comp/> */}
+<ResizeComp/>
+
    </>);
 }
